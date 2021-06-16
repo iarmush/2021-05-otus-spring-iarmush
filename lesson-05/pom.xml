@@ -8,14 +8,15 @@
         <version>2.5.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ru.otus</groupId>
-    <artifactId>lesson</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>lesson-05</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lesson-03</name>
+    <name>lesson-05</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
         <com.opencsv.opencsv.version>5.4</com.opencsv.opencsv.version>
+        <spring.shell.version>2.0.1.RELEASE</spring.shell.version>
     </properties>
     <dependencies>
         <dependency>
@@ -34,6 +35,13 @@
             <artifactId>opencsv</artifactId>
             <version>${com.opencsv.opencsv.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.shell</groupId>
+            <artifactId>spring-shell-starter</artifactId>
+            <version>${spring.shell.version}</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
