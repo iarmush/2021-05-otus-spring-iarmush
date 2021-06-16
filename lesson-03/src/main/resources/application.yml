@@ -1,0 +1,11 @@
+spring:
+  messages:
+    basename: i18n/bundle
+    encoding: UTF-8
+  banner:
+    location:classpath:/banner/banner.txt
+
+exam:
+  csv-path: csv/exam.csv
+  minimal-score: 3
+  language: ru_RU
