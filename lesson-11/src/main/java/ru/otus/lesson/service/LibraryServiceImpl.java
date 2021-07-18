@@ -42,6 +42,7 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void readBookByTitle(String title) {
         Book book = bookService.selectByTitle(title);
         System.out.println(book);
@@ -63,8 +64,8 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     @Transactional
-    public void deleteBookByTitle(String title) {
-        bookService.deleteByTitle(title);
+    public void deleteBook(String title) {
+        bookService.delete(title);
     }
 
     @Override
@@ -73,16 +74,18 @@ public class LibraryServiceImpl implements LibraryService {
         Book book = bookService.selectByTitle(title);
 
         Comment comment = new Comment(text, book);
-        commentService.createComment(comment);
+        commentService.create(comment);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void readAllComments() {
         List<Comment> commentList = commentService.selectAll();
         commentList.forEach(System.out::println);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void readComment(String text) {
         Comment comment = commentService.selectByText(text);
         System.out.println(comment);
@@ -103,21 +106,22 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     @Transactional
-    public void deleteCommentByText(String text) {
-        commentService.deleteByText(text);
+    public void deleteComment(String text) {
+        commentService.delete(text);
     }
 
     private Author checkAuthorExistOrCreate(String fullName) {
-        return authorService.selectByName(fullName).orElseGet(() -> {
-            long authorId = authorService.create(fullName);
-            return new Author(authorId, fullName);
+        return authorService.selectByFullName(fullName).orElseGet(() -> {
+            authorService.create(fullName);
+
+            return authorService.selectByFullName(fullName).orElseThrow();
         });
     }
 
     private Genre checkGenreExistOrCreate(String name) {
         return genreService.selectByName(name).orElseGet(() -> {
-            long genreId = genreService.create(name);
-            return new Genre(genreId, name);
+            genreService.create(name);
+            return genreService.selectByName(name).orElseThrow();
         });
     }
 }

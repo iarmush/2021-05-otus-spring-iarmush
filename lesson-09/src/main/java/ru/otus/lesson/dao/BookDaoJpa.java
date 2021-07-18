@@ -27,7 +27,9 @@ public class BookDaoJpa implements BookDao {
     @Override
     public List<Book> selectAll() {
         return entityManager.createQuery("select b from Book b", Book.class)
+/*
                 .setHint("javax.persistence.fetchgraph", entityManager.getEntityGraph("book-with-author-and-genre-and-comments"))
+*/
                 .getResultList();
     }
 
