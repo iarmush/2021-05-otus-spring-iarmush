@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  data:
+    mongodb:
+      port: 63873
+      database: library
+
+
+mongock:
+#  runner-type: "ApplicationRunner" # default
+  runner-type: "InitializingBean"
+  change-logs-scan-package:
+    -  ru.otus.lesson.changelogs
+  mongo-db:
+    write-concern:
+      journal: false
+    read-concern: local
