@@ -18,14 +18,4 @@ public class NewBookDto {
     private String title;
     private String authorFullName;
     private String genreName;
-
-    //    public static NewBookDto toDto(Book book) {
-//        return new NewBookDto(book.getId(), book.getTitle(), book.getAuthors(),
-//                book.getGenres(), book.getComments());
-//    }
-//
-    public static Book toDomain(NewBookDto bookDto) {
-        return new Book(bookDto.getId(), bookDto.getTitle(), Set.of(new Author(bookDto.getAuthorFullName())),
-                Set.of(new Genre(bookDto.getGenreName())), Collections.emptyList());
-    }
 }

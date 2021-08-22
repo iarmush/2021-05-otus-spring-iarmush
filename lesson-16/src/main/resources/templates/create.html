@@ -19,7 +19,10 @@
         </div>
         <div>
             <label for="author-input">Автор:</label>
-            <input id="author-input" type="text" th:field="${newBook.authorFullName}"/>
+            <select id="author-input" type="text" th:field="${newBook.authorFullName}">
+            <option th:each="author1 : ${authorsFullName}" th:text="${author1}" th:value="${author1}">Author name
+            </option>
+            </select>
         </div>
         <div>
             <label for="genre-input">Жанр:</label>
