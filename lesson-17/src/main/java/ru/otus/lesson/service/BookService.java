@@ -11,6 +11,8 @@ public interface BookService {
 
     Book selectByTitle(String title);
 
+    Book selectById(String id);
+
     void update(Book book);
 
     void delete(String title);

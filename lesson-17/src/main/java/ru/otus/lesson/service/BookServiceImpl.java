@@ -36,6 +36,14 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Book selectById(String id) {
+        Optional<Book> book = bookRepository.findById(id);
+        return book.orElseThrow(() -> {
+            throw new IllegalArgumentException(BOOK_DOESNT_EXIST);
+        });
+    }
+
+    @Override
     public void update(Book book) {
         bookRepository.save(book);
     }

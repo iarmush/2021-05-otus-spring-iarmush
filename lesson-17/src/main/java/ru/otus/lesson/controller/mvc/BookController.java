@@ -10,10 +10,12 @@ import org.springframework.web.servlet.view.RedirectView;
 import ru.otus.lesson.domain.Author;
 import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.domain.Comment;
+import ru.otus.lesson.domain.Genre;
 import ru.otus.lesson.dto.BookDto;
 import ru.otus.lesson.dto.NewBookDto;
 import ru.otus.lesson.mapper.BookMapper;
 import ru.otus.lesson.repository.AuthorRepository;
+import ru.otus.lesson.repository.GenreRepository;
 import ru.otus.lesson.service.BookService;
 
 import java.util.List;
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 public class BookController {
     private final BookService bookService;
     private final AuthorRepository authorRepository;
+    private final GenreRepository genreRepository;
 
     private static final String START_PAGE = "index";
     private static final String CREATE_PAGE = "create";
@@ -37,9 +40,9 @@ public class BookController {
         return START_PAGE;
     }
 
-    @GetMapping("book/search/{title}")
-    public String pageViewBook(@PathVariable String title, Model model) {
-        BookDto bookDto = BookMapper.mapBookToBookDto(bookService.selectByTitle(title));
+    @GetMapping("book/search/{id}")
+    public String pageViewBook(@PathVariable String id, Model model) {
+        BookDto bookDto = BookMapper.mapBookToBookDto(bookService.selectById(id));
         model.addAttribute("book", bookDto);
         model.addAttribute("comment", new Comment());
         return VIEW_PAGE;
@@ -60,9 +63,14 @@ public class BookController {
                 .map(Author::getFullName)
                 .collect(Collectors.toList());
 
+        List<String> genresName = genreRepository.findAll().stream()
+            .map(Genre::getName)
+            .collect(Collectors.toList());
+
         model.addAllAttributes(Map.of(
                 "newBook", new NewBookDto(),
-                "authorsFullName", authorsFullName));
+                "authorsFullName", authorsFullName,
+                "genresName", genresName));
         return CREATE_PAGE;
     }
 
@@ -75,14 +83,14 @@ public class BookController {
     }
 
 
-    @PostMapping("/book/{title}/comment")
-    public RedirectView addComment(@PathVariable String title, Model model, Comment comment, Book book) {
-        Book selectedBook = bookService.selectByTitle(title);
+    @PostMapping("/book/{id}/comment")
+    public RedirectView addComment(@PathVariable String id, Model model, Comment comment, Book book) {
+        Book selectedBook = bookService.selectById(id);
         selectedBook.addComment(comment);
         bookService.update(selectedBook);
         BookDto saved = BookMapper.mapBookToBookDto(book);
         model.addAttribute("book", saved);
-        return new RedirectView(String.format("/book/search/%s", title), true);
+        return new RedirectView(String.format("/book/search/%s", id), true);
     }
 
     @GetMapping("book/{title}/delete")

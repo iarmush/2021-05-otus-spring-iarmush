@@ -2,8 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 
 <body>
@@ -12,7 +14,7 @@
         <h3>Редактор книги</h3>
     </div>
 
-    <form id="save-form" th:action="@{/book/create}" th:method="post">
+    <form id="create-form" th:action="@{/book/create}" th:method="post">
         <div>
             <label for="title-input">Название:</label>
             <input id="title-input" type="text" th:field="${newBook.title}" required/>
@@ -26,10 +28,15 @@
         </div>
         <div>
             <label for="genre-input">Жанр:</label>
-            <input id="genre-input" type="text" th:field="${newBook.genreName}"/>
+            <select id="genre-input" type="text" th:field="${newBook.genreName}">
+            <option th:each="genre1 : ${genresName}" th:text="${genre1}" th:value="${genre1}">Genre name
+            </option>
+            </select>
         </div>
         <div>
-            <button type="submit">Сохранить</button>
+            <button class="btn btn-primary" data-toggle="button"
+                    aria-pressed="false" type="submit">Сохранить
+            </button>
         </div>
     </form>
 </div>

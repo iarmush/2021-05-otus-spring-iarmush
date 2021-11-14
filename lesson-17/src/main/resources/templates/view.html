@@ -2,8 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 
 <body>
@@ -37,7 +39,7 @@
         </tbody>
     </table>
 </div>
-<form id="save-form" th:action="@{/book/{title}/comment(title=*{book.title})}" th:method="post" action="view.html">
+<form id="comment-form" th:action="@{/book/{id}/comment(id=*{book.id})}" th:method="post" action="view.html">
     <div class="container">
         <textarea class="form-control" aria-label="With textarea" th:field="${comment.text}"></textarea>
     </div>
