@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link data-th-href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link data-th-href="@{/css/main.css}" rel="stylesheet">
 </head>
 
 <body>
@@ -22,14 +22,14 @@
         <div>
             <label for="author-input">Автор:</label>
             <select id="author-input" type="text" th:field="${newBook.authorFullName}">
-            <option th:each="author1 : ${authorsFullName}" th:text="${author1}" th:value="${author1}">Author name
+            <option th:each="author : ${authorsFullName}" th:text="${author}" th:value="${author}">Author name
             </option>
             </select>
         </div>
         <div>
             <label for="genre-input">Жанр:</label>
             <select id="genre-input" type="text" th:field="${newBook.genreName}">
-            <option th:each="genre1 : ${genresName}" th:text="${genre1}" th:value="${genre1}">Genre name
+            <option th:each="genre : ${genresName}" th:text="${genre}" th:value="${genre}">Genre name
             </option>
             </select>
         </div>
