@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link data-th-href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link data-th-href="@{/css/main.css}" rel="stylesheet">
+  <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div>
+  <h3>Список книг:</h3>
+</div>
+
+<div class="col-md">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Название</th>
+      <th scope="col">Жанр</th>
+      <th scope="col">Автор</th>
+      <th scope="col">Изменить</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="text-left">
+  <a href="index.html" th:href="@{/}">На главную</a>
+</div>
+
+<script>
+  $(function () {
+    $.get('/api/books').done(function (books) {
+      books.forEach(function (book) {
+        let genreElement = book.genres.map((genre) => {
+          return '<li class="list-group">' + genre.name + '</li>'
+        }).join('')
+
+        let authorElement = book.authors.map((author) => {
+          return '<li class="list-group">' + author.fullName + '</li>'
+        }).join('')
+
+        $('tbody').append(`
+               <tr>
+               <td>${book.id}</td>
+               <td>${book.title}</td>
+               <td>${genreElement}</td>
+               <td>${authorElement}</td>
+               <td>
+                 <ul class="list-group">
+                     <a href="/book/search/${book.id}" href="view.html">Посмотреть</a>
+                     <a href="/book/${book.title}/delete" href="list.html">Удалить</a>
+                 </ul>
+               </td>
+               </tr>
+        `)
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
