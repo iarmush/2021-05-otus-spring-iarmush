@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link data-th-href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link data-th-href="@{/css/main.css}" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <div>
+        <h3>Редактор книги</h3>
+    </div>
+
+    <form id="create-form" th:action="@{/book/create}" th:method="post">
+        <div>
+            <label for="title-input">Название:</label>
+            <input id="title-input" type="text" th:field="${newBook.title}" required/>
+        </div>
+        <div>
+            <label for="author-input">Автор:</label>
+            <select id="author-input" type="text" th:field="${newBook.authorFullName}">
+            <option th:each="author : ${authorsFullName}" th:text="${author}" th:value="${author}">Author name
+            </option>
+            </select>
+        </div>
+        <div>
+            <label for="genre-input">Жанр:</label>
+            <select id="genre-input" type="text" th:field="${newBook.genreName}">
+            <option th:each="genre : ${genresName}" th:text="${genre}" th:value="${genre}">Genre name
+            </option>
+            </select>
+        </div>
+        <div>
+            <button class="btn btn-primary" data-toggle="button"
+                    aria-pressed="false" type="submit">Сохранить
+            </button>
+        </div>
+    </form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+spring:
+  shell:
+    interactive:
+      enabled: false
+  messages:
+    basename: i18n/bundle
+    encoding: UTF-8
+
+exam:
+  csv-path: csv/exam-test.csv
+  minimal-score: 3
+  language: ru_RU
