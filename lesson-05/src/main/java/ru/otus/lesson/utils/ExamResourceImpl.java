@@ -1,13 +1,13 @@
 package ru.otus.lesson.utils;
 
+import java.io.InputStream;
+import java.util.Objects;
 import org.springframework.stereotype.Component;
 import ru.otus.lesson.config.ExamConfig;
 
-import java.io.InputStream;
-import java.util.Objects;
-
 @Component
 public class ExamResourceImpl implements ExamResource {
+
     public static final String FILE_NOT_FOUND = "File not found";
     private final String csvPath;
 

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AnswerOptions {
+
     @CsvBindByName(column = "option A")
     private String optionA;
     @CsvBindByName(column = "option B")
@@ -19,9 +20,9 @@ public class AnswerOptions {
     @Override
     public String toString() {
         return "Choose answer option: \n" +
-                "A) " + optionA + "\n" +
-                "B) " + optionB + "\n" +
-                "C) " + optionC + "\n" +
-                "D) " + optionD + "\n\n";
+            "A) " + optionA + "\n" +
+            "B) " + optionB + "\n" +
+            "C) " + optionC + "\n" +
+            "D) " + optionD + "\n\n";
     }
 }

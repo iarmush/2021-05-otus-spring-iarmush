@@ -1,5 +1,7 @@
 package ru.otus.lesson.repository;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +11,11 @@ import ru.otus.lesson.domain.Author;
 import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.domain.Genre;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @DataMongoTest
 @ComponentScan("ru.otus.lesson.events")
 @DisplayName("BookRepository должен")
 class BookRepositoryTest {
+
     private static final String TITLE = "b1";
     private static final String NAME = "g1";
     private static final String FULL_NAME = "a1";

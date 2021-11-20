@@ -1,13 +1,12 @@
 package ru.otus.lesson.events;
 
+import java.util.Objects;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
 import org.springframework.data.mongodb.core.mapping.event.BeforeConvertEvent;
 import org.springframework.stereotype.Component;
+import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.repository.AuthorRepository;
 import ru.otus.lesson.repository.GenreRepository;
-import ru.otus.lesson.domain.Book;
-
-import java.util.Objects;
 
 @Component
 public class MongoBookCascadeSaveEventsListener extends AbstractMongoEventListener<Book> {

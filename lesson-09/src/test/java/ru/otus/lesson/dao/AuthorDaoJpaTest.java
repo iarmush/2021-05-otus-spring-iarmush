@@ -7,11 +7,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import ru.otus.lesson.domain.Author;
 
-import javax.persistence.EntityManager;
-
 @DataJpaTest
 @Import(AuthorDaoJpa.class)
 class AuthorDaoJpaTest {
+
     public static final String FULL_NAME = "a4";
     @Autowired
     private AuthorDaoJpa authorDaoJpa;

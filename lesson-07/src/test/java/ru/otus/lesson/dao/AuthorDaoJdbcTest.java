@@ -10,6 +10,7 @@ import ru.otus.lesson.domain.Author;
 @JdbcTest
 @Import(AuthorDaoJdbc.class)
 class AuthorDaoJdbcTest {
+
     public static final String FULL_NAME = "a4";
     @Autowired
     AuthorDaoJdbc authorDaoJdbc;

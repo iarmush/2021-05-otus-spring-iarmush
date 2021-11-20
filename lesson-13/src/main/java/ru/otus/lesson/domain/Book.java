@@ -1,14 +1,13 @@
 package ru.otus.lesson.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("books")
 public class Book {
@@ -88,11 +87,11 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", authors=" + authors +
-                ", genres=" + genres +
-                ", comments=" + comments +
-                '}';
+            "id='" + id + '\'' +
+            ", title='" + title + '\'' +
+            ", authors=" + authors +
+            ", genres=" + genres +
+            ", comments=" + comments +
+            '}';
     }
 }

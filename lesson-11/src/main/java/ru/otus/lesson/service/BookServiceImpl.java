@@ -1,14 +1,14 @@
 package ru.otus.lesson.service;
 
+import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import ru.otus.lesson.dao.BookDao;
 import ru.otus.lesson.domain.Book;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class BookServiceImpl implements BookService {
+
     private static final String BOOK_DOESNT_EXIST = "Book doesn't exist";
 
     private final BookDao bookDao;

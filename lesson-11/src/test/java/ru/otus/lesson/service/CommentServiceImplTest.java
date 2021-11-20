@@ -1,5 +1,12 @@
 package ru.otus.lesson.service;
 
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,13 +17,8 @@ import org.mockito.MockitoAnnotations;
 import ru.otus.lesson.dao.CommentDao;
 import ru.otus.lesson.domain.Comment;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
-import static org.mockito.Mockito.*;
-
 class CommentServiceImplTest {
+
     public static final String TEXT = "text";
     public static final String NEW_TEXT = "new text";
 

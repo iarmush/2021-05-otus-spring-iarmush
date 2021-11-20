@@ -6,47 +6,42 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.2</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <version>2.5.5</version>
+    <relativePath/>
   </parent>
   <groupId>com.example</groupId>
   <artifactId>lesson-20</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>lesson-20</name>
-  <description>Demo project for Spring Boot</description>
+  <description>lesson-20</description>
+
   <properties>
     <java.version>11</java.version>
     <spring.shell.version>2.0.1.RELEASE</spring.shell.version>
     <mongock.version>4.3.8</mongock.version>
-    <jquery.version>3.3.1</jquery.version>
   </properties>
-  <dependencies>
 
+  <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-webflux</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
-
     <dependency>
       <groupId>de.flapdoodle.embed</groupId>
       <artifactId>de.flapdoodle.embed.mongo</artifactId>
     </dependency>
-
     <dependency>
       <groupId>com.github.cloudyrock.mongock</groupId>
       <artifactId>mongock-spring-v5</artifactId>
@@ -57,24 +52,14 @@
       <artifactId>mongodb-springdata-v3-driver</artifactId>
       <version>${mongock.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.20</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.webjars</groupId>
-      <artifactId>jquery</artifactId>
-      <version>${jquery.version}</version>
     </dependency>
   </dependencies>
 

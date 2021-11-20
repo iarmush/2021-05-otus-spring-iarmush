@@ -1,5 +1,9 @@
 package ru.otus.lesson.dao;
 
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,12 +13,8 @@ import org.mockito.MockitoAnnotations;
 import ru.otus.lesson.domain.ExamQuestion;
 import ru.otus.lesson.utils.CsvParser;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.mockito.Mockito.when;
-
 class QuestionDaoImplTest {
+
     @Mock
     CsvParser csvParser;
     @InjectMocks

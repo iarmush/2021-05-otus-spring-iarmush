@@ -1,6 +1,7 @@
 package ru.otus.lesson.domain;
 
 public class Author {
+
     private final String fullName;
     private long id;
 
@@ -24,8 +25,8 @@ public class Author {
     @Override
     public String toString() {
         return "Author{" +
-                "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                '}';
+            "id=" + id +
+            ", fullName='" + fullName + '\'' +
+            '}';
     }
 }

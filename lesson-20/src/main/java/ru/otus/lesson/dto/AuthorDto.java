@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class AuthorDto {
+
     private String id;
     private String fullName;
 }

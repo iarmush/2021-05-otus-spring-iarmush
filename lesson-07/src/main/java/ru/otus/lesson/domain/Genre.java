@@ -1,6 +1,7 @@
 package ru.otus.lesson.domain;
 
 public class Genre {
+
     private final String name;
     private long id;
 
@@ -24,8 +25,8 @@ public class Genre {
     @Override
     public String toString() {
         return "Genre{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+            "id=" + id +
+            ", name='" + name + '\'' +
+            '}';
     }
 }

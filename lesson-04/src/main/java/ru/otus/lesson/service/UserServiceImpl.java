@@ -1,14 +1,14 @@
 package ru.otus.lesson.service;
 
+import java.util.Scanner;
 import org.springframework.stereotype.Service;
 import ru.otus.lesson.domain.User;
 import ru.otus.lesson.utils.MessageSourceExam;
 import ru.otus.lesson.utils.OutputScanner;
 
-import java.util.Scanner;
-
 @Service
 public class UserServiceImpl implements UserService {
+
     private final User user = new User();
     private final OutputScanner outputScanner;
     private final MessageSourceExam messageSourceExam;

@@ -4,8 +4,8 @@ import org.bson.Document;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
 import org.springframework.data.mongodb.core.mapping.event.AfterDeleteEvent;
 import org.springframework.stereotype.Component;
-import ru.otus.lesson.repository.GenreRepository;
 import ru.otus.lesson.domain.Genre;
+import ru.otus.lesson.repository.GenreRepository;
 
 
 @Component

@@ -1,10 +1,6 @@
 package ru.otus.lesson.utils;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
+import static org.mockito.Mockito.when;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -12,10 +8,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
-
-import static org.mockito.Mockito.when;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 
 class InputStreamScannerImplTest {
+
     public static final String TEST = "test";
     @Spy
     InputStreamScannerImpl scannerServiceImpl = new InputStreamScannerImpl();
@@ -32,7 +32,7 @@ class InputStreamScannerImplTest {
         InputStream result = scannerServiceImpl.getAnswer();
 
         String text = new BufferedReader(new InputStreamReader(result, StandardCharsets.UTF_8))
-                .lines().collect(Collectors.joining("\n"));
+            .lines().collect(Collectors.joining("\n"));
 
         Assertions.assertEquals("test", text);
     }

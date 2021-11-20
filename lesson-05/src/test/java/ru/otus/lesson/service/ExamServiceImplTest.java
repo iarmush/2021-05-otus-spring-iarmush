@@ -1,5 +1,8 @@
 package ru.otus.lesson.service;
 
+import static org.mockito.Mockito.when;
+
+import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -11,11 +14,8 @@ import ru.otus.lesson.domain.User;
 import ru.otus.lesson.utils.MessageSourceExam;
 import ru.otus.lesson.utils.OutputScanner;
 
-import java.io.ByteArrayInputStream;
-
-import static org.mockito.Mockito.when;
-
 class ExamServiceImplTest {
+
     private final static String TEST = "test";
     @Mock
     OutputScanner outputScanner;

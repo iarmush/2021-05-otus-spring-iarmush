@@ -1,12 +1,12 @@
 package ru.otus.lesson.utils;
 
+import java.io.InputStream;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.io.InputStream;
-
 @Component
 public class InputStreamResourceImpl implements InputStreamResource {
+
     private final String csvPath;
 
     public InputStreamResourceImpl(@Value("${exam.csv.path}") String csvPath) {

@@ -1,5 +1,6 @@
 package ru.otus.lesson.utils;
 
+import java.io.InputStream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,15 +11,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import ru.otus.lesson.config.ExamConfig;
 
-import java.io.InputStream;
-
 @SpringBootTest
 class ExamResourceImplTest {
+
     @Autowired
     ExamResourceImpl examResourceImpl;
 
     @Configuration
     static class NestedConfiguration {
+
         @Bean
         ExamResourceImpl examResource(ExamConfig examConfig) {
             return new ExamResourceImpl(examConfig);

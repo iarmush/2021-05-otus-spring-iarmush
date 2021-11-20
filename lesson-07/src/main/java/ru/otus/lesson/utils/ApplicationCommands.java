@@ -6,6 +6,7 @@ import ru.otus.lesson.service.ShellFacadeService;
 
 @ShellComponent
 public class ApplicationCommands {
+
     private final ShellFacadeService shellFacadeService;
 
     public ApplicationCommands(ShellFacadeService shellFacadeService) {

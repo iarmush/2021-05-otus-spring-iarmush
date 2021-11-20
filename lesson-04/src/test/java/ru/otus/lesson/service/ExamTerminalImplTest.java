@@ -1,5 +1,9 @@
 package ru.otus.lesson.service;
 
+import static org.mockito.Mockito.when;
+
+import java.util.Collections;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -9,12 +13,8 @@ import ru.otus.lesson.dao.QuestionDao;
 import ru.otus.lesson.domain.ExamQuestion;
 import ru.otus.lesson.domain.User;
 
-import java.util.Collections;
-import java.util.List;
-
-import static org.mockito.Mockito.when;
-
 class ExamTerminalImplTest {
+
     @Mock
     QuestionDao questionDao;
     @Mock

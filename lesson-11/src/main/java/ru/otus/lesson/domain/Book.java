@@ -1,10 +1,19 @@
 package ru.otus.lesson.domain;
 
-import org.hibernate.annotations.BatchSize;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import org.hibernate.annotations.BatchSize;
 
 @Entity
 @Table(name = "book")
@@ -27,7 +36,7 @@ public class Book {
     private Genre genre;
 
     @OneToMany(mappedBy = "book", orphanRemoval = true)
-    @BatchSize(size=5)
+    @BatchSize(size = 5)
     private List<Comment> commentList = new ArrayList<>();
 
     public Book(long id, String title, Author author, Genre genre, List<Comment> commentList) {
@@ -90,10 +99,10 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author=" + author +
-                ", genre=" + genre +
-                '}';
+            "id=" + id +
+            ", title='" + title + '\'' +
+            ", author=" + author +
+            ", genre=" + genre +
+            '}';
     }
 }

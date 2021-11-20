@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Question {
+
     @CsvBindByName
     private String title;
     @CsvRecurse
@@ -16,6 +17,6 @@ public class Question {
     @Override
     public String toString() {
         return title + "\n"
-                + answerOptions;
+            + answerOptions;
     }
 }

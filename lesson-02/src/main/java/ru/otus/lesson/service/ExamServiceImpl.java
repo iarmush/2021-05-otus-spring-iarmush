@@ -1,14 +1,14 @@
 package ru.otus.lesson.service;
 
+import java.util.Scanner;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.otus.lesson.domain.ExamQuestion;
 import ru.otus.lesson.utils.InputStreamScanner;
 
-import java.util.Scanner;
-
 @Service
 public class ExamServiceImpl implements ExamService {
+
     private Integer currentScore = 0;
 
     @Value("${exam.minimal.score}")
@@ -38,6 +38,8 @@ public class ExamServiceImpl implements ExamService {
     public void printResult() {
         if (currentScore >= minimalScore) {
             System.out.println("Exam PASSED");
-        } else System.out.println("Exam FAILED");
+        } else {
+            System.out.println("Exam FAILED");
+        }
     }
 }

@@ -1,5 +1,8 @@
 package ru.otus.lesson.service;
 
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.verify;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -7,10 +10,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ru.otus.lesson.domain.Book;
 
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.verify;
-
 class ShellFacadeServiceImplTest {
+
     public static final String TITLE = "title";
     public static final String FULL_NAME = "fullName";
     public static final String NAME = "name";

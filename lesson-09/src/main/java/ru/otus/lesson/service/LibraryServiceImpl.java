@@ -1,5 +1,6 @@
 package ru.otus.lesson.service;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.otus.lesson.domain.Author;
@@ -7,16 +8,16 @@ import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.domain.Comment;
 import ru.otus.lesson.domain.Genre;
 
-import java.util.List;
-
 @Service
 public class LibraryServiceImpl implements LibraryService {
+
     private final BookService bookService;
     private final AuthorService authorService;
     private final GenreService genreService;
     private final CommentService commentService;
 
-    public LibraryServiceImpl(BookService bookService, AuthorService authorService, GenreService genreService, CommentService commentService) {
+    public LibraryServiceImpl(BookService bookService, AuthorService authorService, GenreService genreService,
+        CommentService commentService) {
         this.bookService = bookService;
         this.authorService = authorService;
         this.genreService = genreService;

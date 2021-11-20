@@ -10,6 +10,7 @@ import ru.otus.lesson.domain.Genre;
 @JdbcTest
 @Import(GenreDaoJdbc.class)
 class GenreDaoJdbcTest {
+
     public static final String NEW_NAME = "g4";
     public static final String NAME = "g3";
 

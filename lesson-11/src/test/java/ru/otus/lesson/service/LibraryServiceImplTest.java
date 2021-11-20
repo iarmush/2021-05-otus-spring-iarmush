@@ -1,5 +1,11 @@
 package ru.otus.lesson.service;
 
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+import java.util.Optional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,11 +16,8 @@ import ru.otus.lesson.domain.Author;
 import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.domain.Genre;
 
-import java.util.Optional;
-
-import static org.mockito.Mockito.*;
-
 class LibraryServiceImplTest {
+
     public static final String TITLE = "title";
     public static final String FULL_NAME = "fullName";
     public static final String NAME = "name";

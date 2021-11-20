@@ -1,5 +1,7 @@
 package ru.otus.lesson.utils;
 
+import static org.mockito.Mockito.verify;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
@@ -10,11 +12,10 @@ import org.springframework.shell.Shell;
 import org.springframework.test.annotation.DirtiesContext;
 import ru.otus.lesson.service.LibraryService;
 
-import static org.mockito.Mockito.verify;
-
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class ApplicationCommandsTest {
+
     private final static String BOOK_TITLE = "b4";
     private final static String GENRE_NAME = "g4";
     private final static String AUTHOR_FULL_NAME = "a4";

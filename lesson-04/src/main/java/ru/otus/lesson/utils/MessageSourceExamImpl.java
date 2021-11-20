@@ -1,15 +1,15 @@
 package ru.otus.lesson.utils;
 
+import java.util.Locale;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 import ru.otus.lesson.config.ExamConfig;
 import ru.otus.lesson.domain.ExamQuestion;
 import ru.otus.lesson.domain.User;
 
-import java.util.Locale;
-
 @Component
 public class MessageSourceExamImpl implements MessageSourceExam {
+
     private static final String ENTER_USER_NAME = "Enter user name";
     private static final String ENTER_USER_SURNAME = "Enter user surname";
     private static final String USER = "User";
@@ -28,65 +28,65 @@ public class MessageSourceExamImpl implements MessageSourceExam {
     @Override
     public void printExamQuestion(ExamQuestion examQuestion) {
         System.out.println(messageSource.getMessage(
-                examQuestion.getTitle(),
-                new String[0],
-                locale
+            examQuestion.getTitle(),
+            new String[0],
+            locale
         ));
 
         System.out.println(messageSource.getMessage(
-                OPTION_A,
-                new String[]{examQuestion.getAnswerOptions().getOptionA()},
-                locale
+            OPTION_A,
+            new String[]{examQuestion.getAnswerOptions().getOptionA()},
+            locale
         ));
 
         System.out.println(messageSource.getMessage(
-                OPTION_B,
-                new String[]{examQuestion.getAnswerOptions().getOptionB()},
-                locale
+            OPTION_B,
+            new String[]{examQuestion.getAnswerOptions().getOptionB()},
+            locale
         ));
 
         System.out.println(messageSource.getMessage(
-                OPTION_C,
-                new String[]{examQuestion.getAnswerOptions().getOptionC()},
-                locale
+            OPTION_C,
+            new String[]{examQuestion.getAnswerOptions().getOptionC()},
+            locale
         ));
 
         System.out.println(messageSource.getMessage(
-                OPTION_D,
-                new String[]{examQuestion.getAnswerOptions().getOptionD()},
-                locale
+            OPTION_D,
+            new String[]{examQuestion.getAnswerOptions().getOptionD()},
+            locale
         ));
     }
 
     @Override
     public void printExamResult(String result, User user) {
         System.out.println(messageSource.getMessage(
-                USER,
-                new String[]{user.getName(), user.getSurname()},
-                locale
+            USER,
+            new String[]{user.getName(), user.getSurname()},
+            locale
         ));
         System.out.println(messageSource.getMessage(
-                result,
-                new String[0],
-                locale
+            result,
+            new String[0],
+            locale
         ));
     }
 
     @Override
     public void printEnterUserName() {
         System.out.println(messageSource.getMessage(
-                ENTER_USER_NAME,
-                new String[0],
-                locale
+            ENTER_USER_NAME,
+            new String[0],
+            locale
         ));
     }
 
     @Override
     public void printEnterUserSurname() {
         System.out.println(messageSource.getMessage(
-                ENTER_USER_SURNAME,
-                new String[0],
-                locale
+            ENTER_USER_SURNAME,
+            new String[0],
+            locale
         ));
     }
 }

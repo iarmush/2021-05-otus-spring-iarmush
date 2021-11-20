@@ -1,5 +1,8 @@
 package ru.otus.lesson.service;
 
+import static org.mockito.Mockito.when;
+
+import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -9,11 +12,8 @@ import org.springframework.test.util.ReflectionTestUtils;
 import ru.otus.lesson.domain.ExamQuestion;
 import ru.otus.lesson.utils.InputStreamScanner;
 
-import java.io.ByteArrayInputStream;
-
-import static org.mockito.Mockito.when;
-
 class ExamServiceImplTest {
+
     public static final String TEST = "test";
     @Mock
     InputStreamScanner inputStreamScanner;

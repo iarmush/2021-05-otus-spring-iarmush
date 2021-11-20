@@ -1,11 +1,11 @@
 package ru.otus.lesson.dao;
 
-import ru.otus.lesson.domain.Book;
-
 import java.util.List;
 import java.util.Optional;
+import ru.otus.lesson.domain.Book;
 
 public interface BookDao {
+
     long insert(Book book);
 
     List<Book> selectAll();

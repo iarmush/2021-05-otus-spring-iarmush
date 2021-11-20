@@ -1,12 +1,11 @@
 package ru.otus.lesson.dao;
 
-import org.springframework.stereotype.Service;
-import ru.otus.lesson.domain.Author;
-
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import java.util.Optional;
+import org.springframework.stereotype.Service;
+import ru.otus.lesson.domain.Author;
 
 @Service
 public class AuthorDaoJpa implements AuthorDao {
@@ -31,8 +30,8 @@ public class AuthorDaoJpa implements AuthorDao {
     public Optional<Author> selectByName(String fullName) {
         try {
             return Optional.ofNullable(entityManager.createQuery("select a from Author a where a.fullName = :fullName", Author.class)
-                    .setParameter("fullName", fullName)
-                    .getSingleResult());
+                .setParameter("fullName", fullName)
+                .getSingleResult());
         } catch (NoResultException e) {
             return Optional.empty();
         }

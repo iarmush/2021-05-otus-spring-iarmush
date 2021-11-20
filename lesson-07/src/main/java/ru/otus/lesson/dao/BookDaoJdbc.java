@@ -1,5 +1,11 @@
 package ru.otus.lesson.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -11,15 +17,9 @@ import ru.otus.lesson.domain.Author;
 import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.domain.Genre;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-
 @Repository
 public class BookDaoJdbc implements BookDao {
+
     private static final String TITLE = "title";
     private static final String AUTHOR_ID = "author_id";
     private static final String GENRE_ID = "genre_id";
@@ -36,12 +36,12 @@ public class BookDaoJdbc implements BookDao {
     public long insert(Book book) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         Map<String, Object> params = Map.of(
-                AUTHOR_ID, book.getAuthor().getId(),
-                GENRE_ID, book.getGenre().getId(),
-                TITLE, book.getTitle());
+            AUTHOR_ID, book.getAuthor().getId(),
+            GENRE_ID, book.getGenre().getId(),
+            TITLE, book.getTitle());
 
         namedParameterJdbcOperations.update("insert into book(title, author_id, genre_id) values (:title, :author_id, :genre_id)",
-                new MapSqlParameterSource(params), keyHolder);
+            new MapSqlParameterSource(params), keyHolder);
 
         return Objects.requireNonNull(keyHolder.getKey()).longValue();
     }
@@ -49,22 +49,22 @@ public class BookDaoJdbc implements BookDao {
     @Override
     public List<Book> selectAll() {
         return namedParameterJdbcOperations.query(
-                "select b.id, b.title, b.author_id, a.full_name, b.genre_id, g.name from book b " +
-                        "inner join author a on (b.author_id = a.id) " +
-                        "inner join genre g on (b.genre_id = g.id) ", new BookMapper());
+            "select b.id, b.title, b.author_id, a.full_name, b.genre_id, g.name from book b " +
+                "inner join author a on (b.author_id = a.id) " +
+                "inner join genre g on (b.genre_id = g.id) ", new BookMapper());
     }
 
     @Override
     public Optional<Book> selectByTitle(String title) {
         Map<String, Object> params = Map.of(
-                TITLE, title);
+            TITLE, title);
 
         try {
             return Optional.of(namedParameterJdbcOperations.queryForObject(
-                    "select b.id, b.title, b.author_id, a.full_name, b.genre_id, g.name from book b " +
-                            "inner join author a on (b.author_id = a.id) " +
-                            "inner join genre g on (b.genre_id = g.id) " +
-                            "where b.title = :title ", params, new BookMapper()));
+                "select b.id, b.title, b.author_id, a.full_name, b.genre_id, g.name from book b " +
+                    "inner join author a on (b.author_id = a.id) " +
+                    "inner join genre g on (b.genre_id = g.id) " +
+                    "where b.title = :title ", params, new BookMapper()));
         } catch (DataAccessException e) {
             return Optional.empty();
         }
@@ -73,9 +73,9 @@ public class BookDaoJdbc implements BookDao {
     @Override
     public void update(Book book) {
         Map<String, Object> params = Map.of(
-                AUTHOR_ID, book.getAuthor().getId(),
-                GENRE_ID, book.getGenre().getId(),
-                TITLE, book.getTitle());
+            AUTHOR_ID, book.getAuthor().getId(),
+            GENRE_ID, book.getGenre().getId(),
+            TITLE, book.getTitle());
 
         namedParameterJdbcOperations.update("update book set author_id = :author_id, genre_id = :genre_id where title = :title ", params);
     }
@@ -84,11 +84,11 @@ public class BookDaoJdbc implements BookDao {
     public void deleteByTitle(String title) {
         Map<String, Object> params = Map.of(TITLE, title);
 
-
         namedParameterJdbcOperations.update("delete from book where title = :title ", params);
     }
 
     private static class BookMapper implements RowMapper<Book> {
+
         @Override
         public Book mapRow(ResultSet resultSet, int i) throws SQLException {
             long id = resultSet.getLong(ID);

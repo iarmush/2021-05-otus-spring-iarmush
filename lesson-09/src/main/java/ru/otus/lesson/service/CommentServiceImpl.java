@@ -1,14 +1,14 @@
 package ru.otus.lesson.service;
 
+import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import ru.otus.lesson.dao.CommentDao;
 import ru.otus.lesson.domain.Comment;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class CommentServiceImpl implements CommentService {
+
     private static final String COMMENT_DOESNT_EXIST = "Comment doesn't exist";
 
     private final CommentDao commentDao;

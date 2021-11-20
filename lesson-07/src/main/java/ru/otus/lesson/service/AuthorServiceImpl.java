@@ -6,6 +6,7 @@ import ru.otus.lesson.domain.Author;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
+
     private final AuthorDao authorDao;
 
     public AuthorServiceImpl(AuthorDao authorDao) {

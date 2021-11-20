@@ -2,25 +2,18 @@ package ru.otus.lesson.utils;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.MessageSource;
 import org.springframework.test.context.ActiveProfiles;
-import ru.otus.lesson.config.ExamConfig;
 import ru.otus.lesson.domain.AnswerOptions;
 import ru.otus.lesson.domain.ExamQuestion;
 import ru.otus.lesson.domain.User;
 
-import java.util.Locale;
-
-import static org.mockito.Mockito.*;
-
 @SpringBootTest
 @ActiveProfiles("test")
 class MessageSourceExamImplTest {
+
     private static final String USER = "User";
     public static final String QUESTION_1 = "Question 1";
 
@@ -43,7 +36,6 @@ class MessageSourceExamImplTest {
         ExamQuestion examQuestion = new ExamQuestion();
         examQuestion.setTitle(QUESTION_1);
         examQuestion.setAnswerOptions(answerOptions);
-
 
         messageSourceExamImpl.printExamQuestion(examQuestion);
     }

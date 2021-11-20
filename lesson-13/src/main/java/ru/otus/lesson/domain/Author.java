@@ -40,8 +40,8 @@ public class Author {
     @Override
     public String toString() {
         return "Author{" +
-                "id='" + id + '\'' +
-                ", fullName='" + fullName + '\'' +
-                '}';
+            "id='" + id + '\'' +
+            ", fullName='" + fullName + '\'' +
+            '}';
     }
 }

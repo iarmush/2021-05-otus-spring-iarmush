@@ -1,14 +1,14 @@
 package ru.otus.lesson.service;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import ru.otus.lesson.domain.Author;
 import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.domain.Genre;
 
-import java.util.List;
-
 @Service
 public class ShellFacadeServiceImpl implements ShellFacadeService {
+
     private final BookService bookService;
     private final GenreService genreService;
     private final AuthorService authorService;

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "exam")
 @Component
 public class ExamConfig {
+
     private String csvPath;
     private Integer minimalScore;
     private String language;

@@ -3,6 +3,7 @@ package ru.otus.lesson.domain;
 import com.opencsv.bean.CsvBindByName;
 
 public class AnswerOptions {
+
     @CsvBindByName(column = "option A")
     private String optionA;
     @CsvBindByName(column = "option B")

@@ -1,13 +1,13 @@
 package ru.otus.lesson.utils;
 
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.otus.lesson.domain.Question;
 
-import java.util.List;
-
 class CsvParserTest {
+
     private CsvParser csvParser;
 
     @BeforeEach

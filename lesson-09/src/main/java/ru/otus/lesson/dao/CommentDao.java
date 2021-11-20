@@ -1,11 +1,11 @@
 package ru.otus.lesson.dao;
 
-import ru.otus.lesson.domain.Comment;
-
 import java.util.List;
 import java.util.Optional;
+import ru.otus.lesson.domain.Comment;
 
 public interface CommentDao {
+
     void create(Comment comment);
 
     List<Comment> selectAll();

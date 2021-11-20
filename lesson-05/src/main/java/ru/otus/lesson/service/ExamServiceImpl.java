@@ -1,5 +1,6 @@
 package ru.otus.lesson.service;
 
+import java.util.Scanner;
 import org.springframework.stereotype.Service;
 import ru.otus.lesson.config.ExamConfig;
 import ru.otus.lesson.domain.ExamQuestion;
@@ -7,10 +8,9 @@ import ru.otus.lesson.domain.User;
 import ru.otus.lesson.utils.MessageSourceExam;
 import ru.otus.lesson.utils.OutputScanner;
 
-import java.util.Scanner;
-
 @Service
 public class ExamServiceImpl implements ExamService {
+
     private static final String EXAM_PASSED = "Exam passed";
     private static final String EXAM_FAILED = "Exam failed";
     private Integer currentScore = 0;
@@ -44,6 +44,8 @@ public class ExamServiceImpl implements ExamService {
     public void getResult(User user) {
         if (currentScore >= minimalScore) {
             messageSourceExam.printExamResult(EXAM_PASSED, user);
-        } else messageSourceExam.printExamResult(EXAM_FAILED, user);
+        } else {
+            messageSourceExam.printExamResult(EXAM_FAILED, user);
+        }
     }
 }

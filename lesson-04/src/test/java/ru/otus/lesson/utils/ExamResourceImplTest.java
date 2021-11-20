@@ -1,5 +1,6 @@
 package ru.otus.lesson.utils;
 
+import java.io.InputStream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.io.InputStream;
-
 @SpringBootTest
 @ActiveProfiles("test")
 class ExamResourceImplTest {
+
     @Autowired
     ExamResourceImpl examResourceImpl;
 

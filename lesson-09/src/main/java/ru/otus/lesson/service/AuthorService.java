@@ -1,8 +1,7 @@
 package ru.otus.lesson.service;
 
-import ru.otus.lesson.domain.Author;
-
 import java.util.Optional;
+import ru.otus.lesson.domain.Author;
 
 public interface AuthorService {
 

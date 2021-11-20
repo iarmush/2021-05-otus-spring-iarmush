@@ -1,5 +1,7 @@
 package ru.otus.lesson.dao;
 
+import java.util.List;
+import javax.persistence.EntityManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +10,10 @@ import org.springframework.context.annotation.Import;
 import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.domain.Comment;
 
-import javax.persistence.EntityManager;
-import java.util.List;
-
 @DataJpaTest
 @Import(CommentDaoJpa.class)
 class CommentDaoJpaTest {
+
     public static final String TITLE = "b3";
     public static final String NEW_TITLE = "b4";
     private final static String TEXT = "c3";
@@ -26,8 +26,8 @@ class CommentDaoJpaTest {
     @Test
     void testCreate() {
         Book book = entityManager.createQuery("select b from Book b where b.title = :title", Book.class)
-                .setParameter("title", TITLE)
-                .getSingleResult();
+            .setParameter("title", TITLE)
+            .getSingleResult();
 
         Comment comment = new Comment(TEXT, book);
 

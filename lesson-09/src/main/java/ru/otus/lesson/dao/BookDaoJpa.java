@@ -1,13 +1,12 @@
 package ru.otus.lesson.dao;
 
-import org.springframework.stereotype.Service;
-import ru.otus.lesson.domain.Book;
-
+import java.util.List;
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.stereotype.Service;
+import ru.otus.lesson.domain.Book;
 
 @Service
 public class BookDaoJpa implements BookDao {
@@ -30,19 +29,19 @@ public class BookDaoJpa implements BookDao {
 /*
                 .setHint("javax.persistence.fetchgraph", entityManager.getEntityGraph("book-with-author-and-genre-and-comments"))
 */
-                .getResultList();
+            .getResultList();
     }
 
     @Override
     public Optional<Book> selectByTitle(String title) {
         try {
             return Optional.ofNullable(entityManager.createQuery("select b from Book b where b.title = :title", Book.class)
-                    .setParameter("title", title)
+                .setParameter("title", title)
 /*
                     example of n+1 solution
                     .setHint("javax.persistence.fetchgraph", entityManager.getEntityGraph("book-with-author-and-genre-and-comments"))
 */
-                    .getSingleResult());
+                .getSingleResult());
         } catch (NoResultException e) {
             return Optional.empty();
         }

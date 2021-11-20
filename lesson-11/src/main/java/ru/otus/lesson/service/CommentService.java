@@ -1,10 +1,10 @@
 package ru.otus.lesson.service;
 
+import java.util.List;
 import ru.otus.lesson.domain.Comment;
 
-import java.util.List;
-
 public interface CommentService {
+
     void create(Comment comment);
 
     List<Comment> selectAll();

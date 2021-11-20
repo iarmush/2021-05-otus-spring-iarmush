@@ -6,6 +6,7 @@ import ru.otus.lesson.service.LibraryService;
 
 @ShellComponent
 public class ApplicationCommands {
+
     private final LibraryService libraryService;
 
     public ApplicationCommands(LibraryService libraryService) {

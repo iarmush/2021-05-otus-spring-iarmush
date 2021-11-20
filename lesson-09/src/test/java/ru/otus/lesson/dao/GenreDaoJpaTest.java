@@ -10,6 +10,7 @@ import ru.otus.lesson.domain.Genre;
 @DataJpaTest
 @Import(GenreDaoJpa.class)
 class GenreDaoJpaTest {
+
     public static final String NEW_NAME = "g4";
     public static final String NAME = "g3";
 

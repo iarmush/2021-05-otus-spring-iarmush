@@ -1,15 +1,15 @@
 package ru.otus.lesson.dao;
 
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import ru.otus.lesson.domain.Comment;
 
-import java.util.List;
-
 @DataJpaTest
 class CommentDaoJpaTest {
+
     public static final String TITLE = "b3";
     public static final String NEW_TITLE = "b4";
     private final static String TEXT = "c3";

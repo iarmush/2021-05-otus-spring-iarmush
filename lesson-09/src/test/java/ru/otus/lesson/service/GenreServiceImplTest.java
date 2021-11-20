@@ -1,5 +1,10 @@
 package ru.otus.lesson.service;
 
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.when;
+
+import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,11 +14,8 @@ import org.mockito.MockitoAnnotations;
 import ru.otus.lesson.dao.GenreDao;
 import ru.otus.lesson.domain.Genre;
 
-import java.util.Optional;
-
-import static org.mockito.Mockito.*;
-
 class GenreServiceImplTest {
+
     private static final String NAME = "name";
 
     @Mock

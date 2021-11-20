@@ -3,16 +3,17 @@ package ru.otus.lesson.changelogs;
 import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
 import com.mongodb.client.MongoDatabase;
-import ru.otus.lesson.repository.AuthorRepository;
-import ru.otus.lesson.repository.BookRepository;
-import ru.otus.lesson.repository.GenreRepository;
 import ru.otus.lesson.domain.Author;
 import ru.otus.lesson.domain.Book;
 import ru.otus.lesson.domain.Comment;
 import ru.otus.lesson.domain.Genre;
+import ru.otus.lesson.repository.AuthorRepository;
+import ru.otus.lesson.repository.BookRepository;
+import ru.otus.lesson.repository.GenreRepository;
 
 @ChangeLog(order = "001")
 public class DatabaseChangelog {
+
     private Author author1;
     private Author author2;
     private Author author3;

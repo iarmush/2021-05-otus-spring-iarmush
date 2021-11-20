@@ -1,13 +1,13 @@
 package ru.otus.lesson.service;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import ru.otus.lesson.dao.QuestionDao;
 import ru.otus.lesson.domain.ExamQuestion;
 
-import java.util.List;
-
 @Service
 public class ExamTerminalImpl implements ExamTerminal {
+
     private final QuestionDao questionDao;
     private final ExamService examService;
 

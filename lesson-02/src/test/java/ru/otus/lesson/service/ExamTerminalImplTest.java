@@ -1,5 +1,10 @@
 package ru.otus.lesson.service;
 
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+import java.util.Collections;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,11 +14,8 @@ import org.mockito.MockitoAnnotations;
 import ru.otus.lesson.dao.QuestionDao;
 import ru.otus.lesson.domain.ExamQuestion;
 
-import java.util.Collections;
-
-import static org.mockito.Mockito.*;
-
 class ExamTerminalImplTest {
+
     @Mock
     QuestionDao questionDao;
     @Mock

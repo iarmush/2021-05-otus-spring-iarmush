@@ -5,6 +5,7 @@ import ru.otus.lesson.dao.QuestionDao;
 
 @AllArgsConstructor
 public class QuestionPrinterImpl implements QuestionPrinter {
+
     private final QuestionDao questionDao;
 
     @Override

@@ -6,6 +6,7 @@ import ru.otus.lesson.service.ExamTerminal;
 
 @ShellComponent
 public class ApplicationCommands {
+
     private final ExamTerminal examTerminal;
 
     public ApplicationCommands(ExamTerminal examTerminal) {

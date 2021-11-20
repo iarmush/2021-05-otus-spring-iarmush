@@ -6,6 +6,7 @@ import ru.otus.lesson.domain.Genre;
 
 @Service
 public class GenreServiceImpl implements GenreService {
+
     private final GenreDao genreDao;
 
     public GenreServiceImpl(GenreDao genreDao) {

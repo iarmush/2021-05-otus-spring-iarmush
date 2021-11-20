@@ -1,15 +1,15 @@
 package ru.otus.lesson.dao;
 
+import java.util.List;
+import java.util.Optional;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Service;
 import ru.otus.lesson.domain.Comment;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class CommentDaoJpa implements CommentDao {
+
     @PersistenceContext
     private final EntityManager entityManager;
 
@@ -28,7 +28,7 @@ public class CommentDaoJpa implements CommentDao {
                 "join fetch c.book b " +
                 "join fetch b.genre g " +
                 "join fetch b.author a ", Comment.class)
-                .getResultList();
+            .getResultList();
     }
 
     @Override
@@ -38,8 +38,8 @@ public class CommentDaoJpa implements CommentDao {
                 "join fetch b.genre g " +
                 "join fetch b.author a " +
                 "where c.text = :text", Comment.class)
-                .setParameter("text", text)
-                .getSingleResult());
+            .setParameter("text", text)
+            .getSingleResult());
     }
 
     @Override

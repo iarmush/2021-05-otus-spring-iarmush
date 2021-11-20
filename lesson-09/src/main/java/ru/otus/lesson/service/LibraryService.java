@@ -1,8 +1,7 @@
 package ru.otus.lesson.service;
 
-import org.springframework.transaction.annotation.Transactional;
-
 public interface LibraryService {
+
     void addBook(String title, String fullName, String name);
 
     void readAllBooks();

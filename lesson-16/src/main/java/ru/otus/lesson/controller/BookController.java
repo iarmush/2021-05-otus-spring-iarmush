@@ -1,5 +1,8 @@
 package ru.otus.lesson.controller;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +19,10 @@ import ru.otus.lesson.mapper.BookMapper;
 import ru.otus.lesson.repository.AuthorRepository;
 import ru.otus.lesson.service.BookService;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 @Controller
 @AllArgsConstructor
 public class BookController {
+
     private final BookService bookService;
     private final AuthorRepository authorRepository;
 
@@ -48,8 +48,8 @@ public class BookController {
     @GetMapping("book/list")
     public String pageListBook(Model model) {
         List<BookDto> books = bookService.selectAll().stream()
-                .map(BookMapper::mapBookToBookDto)
-                .collect(Collectors.toList());
+            .map(BookMapper::mapBookToBookDto)
+            .collect(Collectors.toList());
         model.addAttribute("books", books);
         return LIST_PAGE;
     }
@@ -57,12 +57,12 @@ public class BookController {
     @GetMapping("book/create")
     public String pageCreateBook(Model model) {
         List<String> authorsFullName = authorRepository.findAll().stream()
-                .map(Author::getFullName)
-                .collect(Collectors.toList());
+            .map(Author::getFullName)
+            .collect(Collectors.toList());
 
         model.addAllAttributes(Map.of(
-                "newBook", new NewBookDto(),
-                "authorsFullName", authorsFullName));
+            "newBook", new NewBookDto(),
+            "authorsFullName", authorsFullName));
         return CREATE_PAGE;
     }
 
