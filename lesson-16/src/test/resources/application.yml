@@ -7,7 +7,7 @@ spring:
   mongock:
     runner-type: ApplicationRunner
     change-logs-scan-package:
-      - ru.otus.library.changelogs
+      - ru.otus.lesson.changelogs
 
   shell:
     interactive:
