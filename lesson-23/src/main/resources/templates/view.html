@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container">
+  <table class="table table-bordered">
+    <tbody>
+    <tr>
+      <td> Id</td>
+      <td th:text="${book.id}"></td>
+    </tr>
+    <tr>
+      <td> Название</td>
+      <td th:text="${book.title}"></td>
+    </tr>
+    <tr>
+      <td> Автор</td>
+      <td>
+        <ul class="list-group" th:each="author : ${book.author}">
+          <li class="list-group" th:text="${author.fullName}"></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td> Жанр</td>
+      <td>
+        <ul class="list-group" th:each="genre : ${book.genre}">
+          <li class="list-group" th:text="${genre.name}"></li>
+        </ul>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<form id="save-form" th:action="@{/book/{title}/comment(title=*{book.title})}" th:method="post"
+      action="view.html">
+  <div class="container">
+    <textarea class="form-control" aria-label="With textarea" th:field="${comment.text}"></textarea>
+  </div>
+  <div class="container">
+    <button class="btn btn-primary" data-toggle="button"
+            aria-pressed="false" type="submit">Добавить комментарий
+    </button>
+  </div>
+</form>
+
+<br>
+<div class="container">
+  <p>Комментарии:</p>
+  <ul class="list-group" th:each="comment : ${book.comments}">
+    <li class="list-group" th:text="'&quot' + ${comment.text} + '&quot'"></li>
+  </ul>
+</div>
+
+<div class="text-center">
+  <a th:href="@{/}" href="index.html">На главную</a>
+</div>
+
+</body>
+</html>
