@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container">
+  <div>
+    <h3>Библиотека</h3>
+  </div>
+
+  <div>
+    <a th:href="@{/book/list}" href="list.html">Список книг</a>
+  </div>
+
+  <div>
+    <a th:href="@{/book/create}" href="create.html">Добавить новую книгу</a>
+  </div>
+</div>
+
+</body>
+</html>

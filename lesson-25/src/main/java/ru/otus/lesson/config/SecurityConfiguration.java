@@ -15,7 +15,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web.ignoring()
             .antMatchers("/")
-            .antMatchers("/css/**");
+            .antMatchers("/css/**")
+            .antMatchers("/book/list");
     }
 
     @Override
@@ -23,9 +24,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
             .authorizeRequests()
             .antMatchers("/login").permitAll()
-            .anyRequest().authenticated()
+            .antMatchers("/book/create", "/book/*/delete").hasAuthority("ADMIN")
+            .antMatchers("/book/list", "/book/search/*").hasAnyAuthority("READER", "WRITER", "ADMIN")
+            .antMatchers("/book/*/comment").hasAnyAuthority("WRITER", "ADMIN")
+            .antMatchers("/**").denyAll()
             .and()
-            .formLogin();
+            .formLogin()
+            .and()
+            .logout().logoutUrl("/logout");
     }
 
     @Bean
