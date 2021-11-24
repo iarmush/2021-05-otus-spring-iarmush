@@ -1,0 +1,65 @@
+### 1) Create  task 1
+POST http://localhost:8083/create
+Content-Type: application/json
+
+{
+  "name": "JIRA_1",
+  "taskStatus": "CREATED",
+  "estimationCount": 3
+}
+
+### 2) Create task 2
+POST http://localhost:8083/create
+Content-Type: application/json
+
+{
+  "name": "JIRA_2",
+  "taskStatus": "CREATED",
+  "estimationCount": 5
+}
+
+### 3) Send estimations for JIRA_1 and JIRA_2 tasks
+PUT http://localhost:8083/estimate
+Content-Type: application/json
+
+[
+  {
+    "value": 5,
+    "taskName": "JIRA_1"
+  },
+  {
+    "value": 10,
+    "taskName": "JIRA_1"
+  },
+  {
+    "value": 8,
+    "taskName": "JIRA_1"
+  },
+  {
+    "value": 24,
+    "taskName": "JIRA_2"
+  },
+  {
+    "value": 18,
+    "taskName": "JIRA_2"
+  }
+]
+
+### 4) Send estimations for JIRA_2 task
+PUT http://localhost:8083/estimate
+Content-Type: application/json
+
+[
+  {
+    "value": 32,
+    "taskName": "JIRA_2"
+  },
+  {
+    "value": 28,
+    "taskName": "JIRA_2"
+  },
+  {
+    "value": 8  ,
+    "taskName": "JIRA_2"
+  }
+]
