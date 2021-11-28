@@ -53,7 +53,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>ru.otus.lesson.Main</mainClass>
+              <mainClass>ru.otus.lesson.Lesson02</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
