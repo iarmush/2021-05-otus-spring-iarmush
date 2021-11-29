@@ -28,6 +28,9 @@
     <module>lesson-29</module>
     <module>lesson-30</module>
     <module>lesson-32</module>
+    <module>lesson-35-application</module>
+    <module>lesson-35-dashboard</module>
+    <module>lesson-35-discovery-service</module>
   </modules>
 
   <properties>
