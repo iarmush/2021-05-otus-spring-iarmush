@@ -1,0 +1,53 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: lesson-35-application
+  data:
+    mongodb:
+      port: 63873
+      database: library
+  main:
+    banner-mode: log
+
+mongock:
+  #  runner-type: "ApplicationRunner" # default
+  runner-type: "InitializingBean"
+  change-logs-scan-package:
+    - ru.otus.lesson.changelogs
+  mongo-db:
+    write-concern:
+      journal: false
+    read-concern: local
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+
+logging:
+  file:
+    path: target/log
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8009/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  server:
+    eviction-interval-timer-in-ms: 15000
+  instance:
+    leaseRenewalIntervalInSeconds: 30
+    leaseExpirationDurationInSeconds: 90
+    instance-id: ${spring:application:name}:${server:port}
+    prefer-ip-address: true
+
+hystrix.command.findAllBooks.execution.isolation.thread.timeoutInMilliseconds: 3000

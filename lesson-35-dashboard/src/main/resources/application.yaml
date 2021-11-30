@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: lesson-35-dashboard
+server:
+  port: 8010
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"
+
+turbine:
+  app-config: lesson-35-application
+  cluster-name-expression: new String("default")
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8009/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+## link to show
+## http://localhost:8010/hystrix/
+## http://localhost:8010/turbine.stream

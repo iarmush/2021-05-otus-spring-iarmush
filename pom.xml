@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ru.otus</groupId>
+  <artifactId>lesson-root</artifactId>
+  <version>0.0.1</version>
+  <packaging>pom</packaging>
+  <name>lesson-root</name>
+  <description>lesson-root</description>
+
+  <modules>
+    <module>lesson-01</module>
+    <module>lesson-02</module>
+    <module>lesson-04</module>
+    <module>lesson-05</module>
+    <module>lesson-07</module>
+    <module>lesson-09</module>
+    <module>lesson-11</module>
+    <module>lesson-13</module>
+    <module>lesson-16</module>
+    <module>lesson-17</module>
+    <module>lesson-20</module>
+    <module>lesson-23</module>
+    <module>lesson-25</module>
+    <module>lesson-26</module>
+    <module>lesson-29</module>
+    <module>lesson-30</module>
+    <module>lesson-32</module>
+    <module>lesson-35-application</module>
+    <module>lesson-35-dashboard</module>
+    <module>lesson-35-discovery-service</module>
+  </modules>
+
+  <properties>
+    <lombok.version>1.18.20</lombok.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
